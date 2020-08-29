@@ -58,13 +58,13 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let myRE = /^[A-Z]/gm;
-  if (myRE.exec(str) === null) {
-    return false;
-  }
-  else {
-    return true;
-  }
+  var fulllist = [];
+  str.forEach(element => {
+    if (element.match( /^[A-Z]/gm) !== null) {
+      fulllist.push(element);
+    }
+  });
+  return fulllist;
 };
 
 /* ------------------------------------------------------------------------------------------------
