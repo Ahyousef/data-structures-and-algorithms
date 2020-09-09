@@ -107,6 +107,7 @@ const howManyTreats = (arr) => {
         })
       }
     })
+    
         return finalObj[0].quantity
   };
 
