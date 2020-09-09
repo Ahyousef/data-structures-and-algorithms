@@ -10,10 +10,14 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
     return arr.reduce((accum, val) => {
-        accum[0] = ( accum[0] === undefined || val < accum[0] ) ? val : accum[0]
-        accum[1] = ( accum[1] === undefined || val > accum[1] ) ? val : accum[1]
-        return accum;
-    }, []);
+      console.log(accum);
+      console.log(val);
+      if (val > accum) {
+        console.log('entered');
+        accum = val;
+      }
+      return accum;
+},0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -42,10 +46,12 @@ const grandTotal = (stores) => {
     let finalarr =[];
 
     for (let index = 0; index < hoursOpen.length; index++) {
-        finalarr.push(cookieStores.reduce((accum, value) => {
+        finalarr.push(stores.reduce((accum, value) => {
+          console.log(accum);
             return accum + value[index];
         },0));
     }
+    return finalarr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,8 +65,15 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
-};
+  let finalArray=[];
+  data.forEach((cookies,index) => {
+      finalArray.push({
+        sales : `${cookies} cookies`,
+        time : hours[index] 
+      });
+  
+  });
+  return finalArray;};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -84,8 +97,18 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
-};
+  let finalObj;
+    arr.forEach(element => {
+      if (element.store === 'Pet store')
+      {
+        console.log('Inside pet store');
+         finalObj = element.items.filter(obj => {
+          return obj.name === 'Treats'
+        })
+      }
+    })
+        return finalObj[0].quantity
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
