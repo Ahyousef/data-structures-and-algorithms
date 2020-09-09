@@ -37,12 +37,12 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templateWithJQuery = () => {
-    let template = $('#template').clone();
 
     starWarsPeople.forEach(element => {
+        let template = $('#template').clone();
         template.find('h2').html(element.name);
         template.find('h3').html(element.height);
-        template.find('p').html(element.p);
+        template.find('p').html(element.eye_color);
         $('main').append(template);
     });
 };
@@ -128,21 +128,19 @@ const gruffaloCrumble = {
 
 
 const listFoods = (recipe) => {
-    debugger
     let result = [];
     let ingredients = recipe.ingredients;
     let items = ['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water'];
-    items.forEach(element => {
-        ingredients.forEach(e => {
-            let index = e.indexOf(element);
-            if (index !== -1) {
-                let item = ingredients.slice(index)
-                result.push(item)
+    ingredients.forEach(element => {
+        items.forEach(e => {
+            if (element.includes(e)) {
+                let index = element.indexOf(e);
+                let item = element.slice(index)
+                result.push(item);
             }
-
         });
     });
-    return result;
+   return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -267,7 +265,7 @@ describe('Testing challenge 1', () => {
         templateWithJQuery();
         expect($('section:nth-child(2) h2').text()).toStrictEqual('Luke Skywalker');
         expect($('section:nth-child(3) h3').text()).toStrictEqual('167');
-        expect($('section:nth-child(4) p').text()).toStrictEqual('red');
+        expect($('section:nth-child(5) p').text()).toStrictEqual('red');
     })
 });
 
