@@ -53,7 +53,8 @@ const filterStringsWithVowels = (arr) => {
   let results = [];
   let reg = /[a,e,i,o,u]/i;
   results = arr.filter(word => reg.test(word));
-  return results;
+  return results; 
+  
 };
 
 
