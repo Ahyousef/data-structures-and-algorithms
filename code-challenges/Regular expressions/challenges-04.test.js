@@ -58,13 +58,8 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  var fulllist = [];
-  str.forEach(element => {
-    if (element.match( /^[A-Z]/gm) !== null) {
-      fulllist.push(element);
-    }
-  });
-  return fulllist;
+  let expression =  /\b[A-Z].*?\b/g;
+  return str.match(expression) || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
