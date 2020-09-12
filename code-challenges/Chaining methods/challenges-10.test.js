@@ -7,13 +7,25 @@ Build a simple express server. Connect a '/hello' route that sends a greeting of
 ------------------------------------------------------------------------------------------------ */
 
 const createServer = () => {
-  // Solution code here...
+  const express = require('express')
+  const app = express()
 
+  app.get('/hello', (req, res) => {
+    res.status(200).send('Hello');
+  });
+  app.get('/aboutme', (req, res) => {
+    res.status(200).send('I am ahmad yousef, and this is an about me');
+  });
+  app.get('/favoritefoods', (req, res) => {
+    res.status(200).send('I eat anything and everything, I love food');
+  });
+  app.get('*', (req, res) => {
+    res.status(404).send('NOT FOUND');
+  });
   var server = app.listen(3301, function () {
     var port = server.address().port;
     console.log('Example app listening at port', port);
   });
-  app.get('/hello',)
   return server;
 };
 
@@ -51,10 +63,13 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   input.reduce((accum,value) => {
+    console.log('value is ' , value);
       value.forEach(element => {
+        console.log('element is ' , element);
           return accum + element
       });
-  })
+      return accum;
+  },0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,13 +85,19 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  let newInput = input.forEach(element => {
-    let newArray = element.filter((e)=> e%5 == 0)
-    return newArray
+  return input.map((item)=>{
+    return item.filter((num)=>{
+      if (typeof(num) !== 'number'){
+        return null;
+      }
+      if (num%5 === 0) {
+        console.log(num);
+        return num ;
+      }
+    }).map((value)=> Math.pow(2,value));
   })
-  console.log(newInput);
-  ;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stetch Goal
