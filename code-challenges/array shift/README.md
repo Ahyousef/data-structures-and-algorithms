@@ -6,3 +6,5 @@ add the value to the middle of that array.
 ## Approach & Efficiency
 Try to do it manually, test it on odd number of array and even number of array, if it works then write tests for it.
 10-15 mins
+## Solution
+![whiteboard](aww-board(5).png)
