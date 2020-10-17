@@ -11,7 +11,7 @@ let BinarySearch = function (arr, key) {
     while (arr[mid] != key) {
         mid = Math.round((high+low) / 2)
         if (arr[mid] == key) {
-            console.log(`They index of ${key} is ${mid}`);
+            console.log(`The index of ${key} is ${mid}`);
             return mid;
         }
         else if (high - low < 0.5) {
@@ -27,3 +27,5 @@ let BinarySearch = function (arr, key) {
 
     }
 }
+
+module.exports = BinarySearch;
