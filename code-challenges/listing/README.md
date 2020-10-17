@@ -1,10 +1,8 @@
 # Challenge Summary
-Make a function that adds a value to the middle of the array
+Make a node class and a linked list class
 ## Challenge Description
-The function insertShiftArray should take an array and a value, and without using any in-built methods, it should
-add the value to the middle of that array.
+You should be able to insert, check if it exists and return all of the values as a string
 ## Approach & Efficiency
-Try to do it manually, test it on odd number of array and even number of array, if it works then write tests for it.
-10-15 mins
+Console log all the way to visualize the objects, make use of while loops and if statements
 ## Solution
-![whiteboard](aww-board(5).png)
+![whiteboard](aww-board(7).png)
