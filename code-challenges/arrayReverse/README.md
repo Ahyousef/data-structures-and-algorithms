@@ -7,4 +7,4 @@ Write a function that takes an array and returns it in reverse
 For loop with a push 
 While loop and using arr[i]=array[arr.length-1-i]
 ## Solution
-![whiteboard](aww-board (4).png)
+![whiteboard](aww-board(4).png)
