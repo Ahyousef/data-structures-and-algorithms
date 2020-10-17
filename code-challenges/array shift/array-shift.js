@@ -3,28 +3,16 @@
 let oddArray = [1,2,3,4,5]
 let evenArray = [1,2,3,4,5,6]
 
-
-
 let insertShiftArray = function (arr,val){
-    let newArr = arr;
-    let length = arr.length;
-    newArr = arr.splice(length/2,0,val)
+    let newArr = [];
+    let midIndex = Math.ceil(arr.length/2);
+    arr.forEach((num,index)=>{
+        if (index == midIndex){
+            newArr.push(val)
+        }
+        newArr.push(num)
+    })
     return newArr
 }
 
-let insertShiftArray2 = function (arr,val){
-    let newArr = arr;
-    let length = arr.length;
-    let i = 0;
-    while (i < length/2){
-        newArr[i]=arr[i]
-        i++
-    }
-    newArr[Math.round(length/2)] = val
-    i = Math.round(length/2)+1
-    while (i<arr.length ){
-        newArr[i] = arr[i]
-        i++
-    }
-    return newArr
-}
+module.exports = insertShiftArray;
