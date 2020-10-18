@@ -44,3 +44,27 @@ describe("toString()", () => {
     expect(ll.toString()).toEqual(`{a} -> {b} -> {c} -> NULL`);
   });
 });
+describe("insertBefore()", () => {
+  const ll = new LinkedList();
+  ll.insert('a');
+  ll.insert('b');
+  ll.insert('c');
+  it("Can successfully insert a node before a node located in the middle of a linked list", () => {
+    expect(ll.insertBefore('b','d')).toEqual(`{a} -> {d} -> {b} -> {c} -> NULL`);
+  });
+  it("Can successfully insert a node before the first node of a linked list", () => {
+    expect(ll.insertBefore('a','d')).toEqual(`{d} -> {a} -> {d} -> {b} -> {c} -> NULL`);
+  });
+});
+describe("insertAfter()", () => {
+  const ll = new LinkedList();
+  ll.insert('a');
+  ll.insert('b');
+  ll.insert('c');
+  it("Can successfully insert a node after a node located in the middle of a linked list", () => {
+    expect(ll.insertAfter('b','d')).toEqual(`{a} -> {b} -> {d} -> {c} -> NULL`);
+  });
+  it("Can successfully insert a node after the first node of a linked list", () => {
+    expect(ll.insertAfter('a','d')).toEqual(`{a} -> {d} -> {b} -> {d} -> {c} -> NULL`);
+  });
+});
