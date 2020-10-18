@@ -1,7 +1,7 @@
 # Challenge Summary
-Make a node class and a linked list class [Extension]
+Make a node class and a linked list class
 ## Challenge Description
-You should be able to append to the end, insertBefore and after a node;
+You should be able to insert, check if it exists and return all of the values as a string
 ## Approach & Efficiency
 Console log all the way to visualize the objects, make use of while loops and if statements
 ## Solution
