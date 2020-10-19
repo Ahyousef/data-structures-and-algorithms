@@ -20,6 +20,7 @@ class LinkedList {
 
     }
     includes(val) {
+
         let currentNode = this.head;
         if (currentNode.value === val) {
             return true;
@@ -96,6 +97,16 @@ class LinkedList {
                 return this.toString()
             }
         }
+    }
+    kthFromEnd(k){
+        let string = this.toString();
+        let length = string.match(/{/g).length
+        if(k >= length){
+            return false
+        }
+        let index = (string.length-10)-(k*7)
+        return (string.slice(index,index+1))
+
     }
 
 }
