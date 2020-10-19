@@ -13,7 +13,9 @@ describe("Can successfully instantiate an empty linked list", () => {
 describe("insert()", () => {
   const ll = new LinkedList();
   it("Can properly insert into the linked list", () => {
-    expect(ll.insert(0)).toEqual(ll.head);
+    ll.insert(0);
+    let head = ll.head
+    expect(head.value).toEqual(0);
   });
   it("head property will properly point to the first node in the linked list", () => {
     let head = ll.head
@@ -21,13 +23,18 @@ describe("insert()", () => {
     expect(head.value).toEqual(0);
   });
   it("Can properly insert multiple nodes into the linked list", () => {
-    expect(ll.insert(1)).toEqual(ll.head);
+    let head = ll.head;
+    ll.insert(2);
+    ll.insert(1);
+    let nextNode = head.next;
+    expect(head.value).toEqual(0);
+    expect(nextNode.value).toEqual(1);
   });
 });
 
 describe("include()", () => {
   const ll = new LinkedList();
-  ll.insert(0);
+  ll.append(0);
   it("Will return true when finding a value within the linked list that exists", () => {
     expect(ll.includes(0)).toEqual(true);
   });
@@ -37,34 +44,34 @@ describe("include()", () => {
 });
 describe("toString()", () => {
   const ll = new LinkedList();
-  ll.insert('a');
-  ll.insert('b');
-  ll.insert('c');
+  ll.append('a');
+  ll.append('b');
+  ll.append('c');
   it("Can properly return a collection of all the values that exist in the linked list", () => {
     expect(ll.toString()).toEqual(`{a} -> {b} -> {c} -> NULL`);
   });
 });
 describe("insertBefore()", () => {
   const ll = new LinkedList();
-  ll.insert('a');
-  ll.insert('b');
-  ll.insert('c');
+  ll.append('a');
+  ll.append('b');
+  ll.append('c');
   it("Can successfully insert a node before a node located in the middle of a linked list", () => {
-    expect(ll.insertBefore('b','d')).toEqual(`{a} -> {d} -> {b} -> {c} -> NULL`);
+    expect(ll.insertBefore('b', 'd')).toEqual(`{a} -> {d} -> {b} -> {c} -> NULL`);
   });
   it("Can successfully insert a node before the first node of a linked list", () => {
-    expect(ll.insertBefore('a','d')).toEqual(`{d} -> {a} -> {d} -> {b} -> {c} -> NULL`);
+    expect(ll.insertBefore('a', 'd')).toEqual(`{d} -> {a} -> {d} -> {b} -> {c} -> NULL`);
   });
 });
 describe("insertAfter()", () => {
   const ll = new LinkedList();
-  ll.insert('a');
-  ll.insert('b');
-  ll.insert('c');
+  ll.append('a');
+  ll.append('b');
+  ll.append('c');
   it("Can successfully insert a node after a node located in the middle of a linked list", () => {
-    expect(ll.insertAfter('b','d')).toEqual(`{a} -> {b} -> {d} -> {c} -> NULL`);
+    expect(ll.insertAfter('b', 'd')).toEqual(`{a} -> {b} -> {d} -> {c} -> NULL`);
   });
   it("Can successfully insert a node after the first node of a linked list", () => {
-    expect(ll.insertAfter('a','d')).toEqual(`{a} -> {d} -> {b} -> {d} -> {c} -> NULL`);
+    expect(ll.insertAfter('a', 'd')).toEqual(`{a} -> {d} -> {b} -> {d} -> {c} -> NULL`);
   });
 });
