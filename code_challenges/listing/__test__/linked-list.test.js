@@ -75,3 +75,26 @@ describe("insertAfter()", () => {
     expect(ll.insertAfter('a', 'd')).toEqual(`{a} -> {d} -> {b} -> {d} -> {c} -> NULL`);
   });
 });
+describe("kthFromEnd()", () => {
+  const oneLL = new LinkedList();
+  oneLL.append('a');
+
+  it("Where the linked list is of a size 1 ", () => {
+    expect(oneLL.kthFromEnd(0)).toEqual('a');
+  });
+  const kLL = new LinkedList();
+  kLL.append('a');
+  kLL.append('b');
+  kLL.append('c');
+  kLL.append('d');
+  // {a} -> {b} -> {c} -> {d} -> NULL
+  it("Where k is greater than the length of the linked list", () => {
+    expect(kLL.kthFromEnd(5)).toEqual(false);
+  });
+  it("Where k and the length of the list are the same", () => {
+    expect(kLL.kthFromEnd(4)).toEqual(false);
+  });
+  it("“Happy Path” where k is not at the end, but somewhere in the middle of the linked list", () => {
+    expect(kLL.kthFromEnd(2)).toEqual('b');
+  });
+});
