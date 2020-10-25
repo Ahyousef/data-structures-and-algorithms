@@ -13,15 +13,14 @@ class Stack {
     }
     push(val) {
         let newNode = new Node(val);
-        let currentNode = this.top;
-        if (!currentNode) {
+        if (!this.top) {
             newNode.next = null;
         }
         else {
-            newNode.next = currentNode;
+            newNode.next = this.top;
         }
-        currentNode = newNode;
-        return currentNode
+        this.top = newNode;
+        return this.top
     }
     pop() {
         let currentNode = this.top;
@@ -84,5 +83,19 @@ class Queue {
         } else {
             return true;
         }
+    }
+}
+
+
+class PseudoQueue {
+    constructor(){
+        this.front = null;
+        this.rear = null;
+    }
+    enqueue(value){
+        
+    }
+    dequeue(){
+
     }
 }
