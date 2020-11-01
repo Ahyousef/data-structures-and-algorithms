@@ -59,4 +59,17 @@ class BinarySearchTree {
         let list = BinaryTree.inOrder();
         return list.contains(val)
     }
+    findmaximumvalue(){
+        // list = BinaryTree.inOrder();
+        // check within the array
+        let maxVal = (this.root).value;
+        const _walk = (node) => {
+            if (node.left) _walk(node.left);
+            if (node.value > maxVal){maxVal = node.value}
+            if (node.right) _walk(node.right);
+        };
+
+        _walk(this.root);
+        return maxVal;
+    }
 }
