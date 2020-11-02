@@ -23,20 +23,26 @@ class Stack {
         return this.top
     }
     pop() {
-        let currentNode = this.top;
-        if (!currentNode) {
+        if (!this.top) {
             return "null";
         }
         else {
-            let previousNode = currentNode;
-            currentNode = currentNode.next;
-            previoutNode.next = null;
-            return previoutNode.value;
+            let previousNode = this.top;
+            this.top = this.top.next;
+            previousNode.next = null;
+            return previousNode.value;
+        }
+    }
+    peek() {
+        if (!this.top) {
+            return "empty"
+        }
+        else {
+            return this.top.value
         }
     }
     isEmpty() {
-        let currentNode = this.top;
-        if (currentNode) {
+        if (this.top) {
             return false;
         } else {
             return true;
@@ -66,8 +72,8 @@ class Queue {
         }
         else if (this.rear == this.front) {
             let val = this.rear.value;
-            this.rear = null;
             this.front = null;
+            this.rear = null;
             return val;
         }
         else {
@@ -75,6 +81,14 @@ class Queue {
             this.front = this.front.next;
             previous.next = null;
             return previous.value;
+        }
+    }
+    peek() {
+        if (!this.front && !this.read) {
+            return 'null';
+        }
+        else {
+            return this.front.value
         }
     }
     isEmpty() {
@@ -86,16 +100,39 @@ class Queue {
     }
 }
 
+// Brand new queue class that will internally use 2 stack objects as the input
 
 class PseudoQueue {
-    constructor(){
-        this.front = null;
-        this.rear = null;
+    constructor() {
+        // Use existing stack class
+        this.firstStack = new Stack();
+        this.secondStack = new Stack();
     }
-    enqueue(value){
-        
+    enqueue(val) {
+        // push val to the queue using first stack 
+        return this.firstStack.push(val);
     }
-    dequeue(){
+    dequeue() {
+        // To dequeue, we move all the elements to the second Stack,
+        // pop the top then move them back to the first stack
+        let el;
+        while (el != 'null') {
+            el = this.firstStack.pop(); // use the method that i created, once empty the el becomes 'null'
+            if (el != 'null') {
+                this.secondStack.push(el);
+            }
+        }
 
+        let popEl = this.secondStack.pop();
+
+        // after popping the top, return the rest to the first storage;
+        // Basically the opposite of the first while loop
+        while (el != 'null') {
+            el = this.secondStack.pop(); // use the method that i created, once empty the el becomes 'null'
+            if (el != 'null') {
+                this.firstStack.push(el);
+            }
+        }
+        return `dequeued` 
     }
 }
