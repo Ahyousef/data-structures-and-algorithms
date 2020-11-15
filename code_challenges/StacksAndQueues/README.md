@@ -1,12 +1,10 @@
 # Stacks and Queues
 
-Stack is a container of objects that are inserted and removed according to the last-in first-out (LIFO) principle. Queue is a container of objects (a linear collection) that are inserted and removed according to the first-in first-out (FIFO) principle.
+Create a class called AnimalShelter which holds only dogs and cats. The shelter operates using a first-in, first-out approach.
 
 ## Challenge
 
-Create two classes, one for stacks and one for queues with methods for each.
-Be able to push, pop, check if its empty for the stacks.
-Enqueue and dequeue for the queues.
+Create two classes, one for dogs and one for cats. Then create a class for animal shelter that holds two Queus from the Queue class, that has the methods written before
 
 ## Approach & Efficiency
 
