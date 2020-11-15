@@ -57,9 +57,9 @@ class BinarySearchTree {
     }
     contains(val){
         let list = BinaryTree.inOrder();
-        return list.contains(val)
+        return list.contains(val);
     }
-    findmaximumvalue(){
+    findMaximumValue(){
         // list = BinaryTree.inOrder();
         // check within the array
         let maxVal = (this.root).value;
