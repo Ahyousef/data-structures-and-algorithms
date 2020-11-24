@@ -1,4 +1,4 @@
-# Selection Sort
+# Merge Sort
 
 Merge Sort is a sorting algorithm that works by dividing up the array into two halves, left and right, then doing that until there is only one element in each left and right, merges them together then moves to the next level.
 
