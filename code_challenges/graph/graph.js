@@ -51,3 +51,5 @@ class Vertex {
     }
 
   }
+
+  module.exports = {Vertex,Edge,Graph}
